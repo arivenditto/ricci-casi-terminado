@@ -1,0 +1,250 @@
+/** INDEX **/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+:root{
+    --color-rosa: #FF99CC;
+    --color-naranja: #FF9933;
+}
+body {
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: bold;
+}
+.header{
+    background-color: var(--color-naranja);
+}
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo´{
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 800px;
+}
+nav {
+    position: relative;
+    float: left;
+    color: white;
+}
+.menu .navbar ul li a{
+    font-size: 18px;
+    padding: 28px;
+    color: #FFFFFF;
+    display: block;
+    font-weight: 600;
+}
+#menu{
+    display: none;
+}
+.menu-icono{
+    width: 25px;
+}
+.menu label{
+    cursor: pointer;
+    display: none;
+}
+.submenu{
+    position: relative;
+}
+.submenu #carrito{
+    display: none;
+}
+.submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right: 0;
+    backdrop-filter: blur(10px);
+    top: 10%;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    min-width: 400px;
+
+}
+table{
+    width: 100%;
+}
+th, td{
+color: #FFFFFF;
+}
+#vaciar-carrito{
+    background-color: var(--color-rosa);
+    border-radius: 100%;
+    text-decoration: #FFFFFF;
+    font-weight: 800;
+}
+/** PRODUCTOS **/
+.product-form h2 {
+    margin-bottom: 20px;
+}
+
+.product-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.product-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #FF99CC;
+    border-radius: 4px;
+}
+
+.product-form button {
+    background-color: #FF99CC;
+    border-color: #FF99CC;
+    padding: 5px;
+    color: white
+}
+
+.banner {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.contacto {
+    background-image: url(./img/ricci-materializamos.png);
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40vh;
+    padding: 20px;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.redes-sociales ul {
+    list-style: none;
+    padding: 250;
+    margin-left: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes-sociales li {
+    margin-right: 20px;
+}
+
+.redes-sociales a {
+    color: #FF99CC;
+    padding: 25px;
+    font-size: 35px;
+    display: block;
+}
+
+.caja-texto {
+    align-items: center;
+    width: 40%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.caja-texto h2 {
+    margin-top: 0;
+    color: #FF9933;
+}
+
+.caja-texto textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+.caja-texto button {
+    background-color: #e762a4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.caja-texto button:hover {
+    background-color: #FF99CC;
+}
+
+.bloque-informativo {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.imagen-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/TRAMA-GIGANTE.png);
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+}
+
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contenido h2 {
+    font-size: 24px;
+    margin-top: 0;
+    color: #FF99CC;
+    text-align: center;
+}
+
+.contenido p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.contenido a {
+    background-color: #FF99CC;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bloque-informativo a:hover {
+    background-color: #FF9933;
+    list-style-type: none;
+}
+
+/** PRODUCTOS **/
+/** QUIENES SOMOS**/
+/** CONTACTO**/
+/** CARRITO DE COMPRAS **/
