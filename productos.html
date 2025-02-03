@@ -2,77 +2,80 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--DESCRIPTION-->
-  <meta name="description" content="Adopta un amigo: Refugio de Animales, información y recursos. ">
-  <!-- KEYWORDS-->
-  <meta name="keywords"
-    content="estudio, creativo, cuadros, laminas, fotos, stickers, pegatinas, arte, decoracion, hogar, diseño, productos">
-  <link rel="stylesheet" href="../styles.css">
-  <title>Ricci</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--DESCRIPTION-->
+    <meta name="description" content="Adopta un amigo: Refugio de Animales, información y recursos. ">
+    <!-- KEYWORDS-->
+    <meta name="keywords"
+        content="estudio, creativo, cuadros, laminas, fotos, stickers, pegatinas, arte, decoracion, hogar, diseño, productos">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Ricci</title>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="./productos.html">Productos</a></li>
-          <li><a href="#">Quienes Somos</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li class="cart-dropdown">
-              <button id="cart-toggle"><i class="fas fa-shopping-cart"></i> Mi Carrito</button>
-              <div class="cart-panel" style="display: none;">
-                  <h3>Productos en el carrito:</h3>
-                  <ul id="cart-items"></ul>
-                  <p id="empty-cart" style="display: none;">Carrito vacío</p>
-                  <button id="checkout-button" style="display: none;">Realizar pedido</button>
-              </div>
-          </li>
-      </ul>
-  </nav>
-  </header>
-  <main>
-    <div class="product-form">
-      <h2>Productos</h2>
-      <form id="add-product-form">
-        <label for="size">Medidas:</label>
-        <select id="size" required>
-          <option value="">Seleccione una medida</option>
-          <option value="A1(59,4x84,1)">A1(59,4x84,1)</option>
-          <option value="A2(42x59,4)">A2(42x59,4)</option>
-          <option value="A3(29,7x42)">A3(29,7x42)</option>
-          <option value="A4(21x29,7)">A4(21x29,7)</option>
-          <option value="A5(14x21)">A5(14x21)</option>
-          <option value="Personalizado">Personalizado</option>
-        </select>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../pages/productos.html">Productos</a></li>
+                <li><a href="#about">Quiénes Somos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <button id="cart-icon">🛒</button>
+        </nav>
+    </header>
+    <main>
+        <div class="imagen-fondo"></div>
+<div class="product-form">
+    <div class="form-background">
+        <h2>Productos</h2>
+        <form id="add-product-form">
+            <label for="size">Medidas:</label>
+            <select id="size" required>
+                <option value="">Seleccione una medida</option>
+                <option value="A1(59,4x84,1)">A1(59,4x84,1)</option>
+                <option value="A2(42x59,4)">A2(42x59,4)</option>
+                <option value="A3(29,7x42)">A3(29,7x42)</option>
+                <option value="A4(21x29,7)">A4(21x29,7)</option>
+                <option value="A5(14x21)">A5(14x21)</option>
+                <option value="Personalizado">Personalizado</option>
+            </select>
 
-        <label for="frame">Marco:</label>
-        <select id="frame" required>
-          <option value="">Seleccione un marco</option>
-          <option value="Madera natural">Madera natural</option>
-          <option value="Laqueado negro">Laqueado negro</option>
-        </select>
+            <label for="frame">Marco:</label>
+            <select id="frame" required>
+                <option value="">Seleccione un marco</option>
+                <option value="Madera natural">Madera natural</option>
+                <option value="Laqueado negro">Laqueado negro</option>
+            </select>
 
-        <label for="laminate">Lámina:</label>
-        <select id="laminate" required>
-          <option value="">Seleccione una lámina</option>
-          <option value="145">145</option>
-          <option value="221">221</option>
-          <option value="398">398</option>
-          <option value="465">465</option>
-          <option value="723">723</option>
-          <option value="890">890</option>
-          <option value="000">000</option>
-          <option value="Personalizado">Personalizado</option>
-        </select>
+            <label for="laminate">Lámina:</label>
+            <select id="laminate" required>
+                <option value="">Seleccione una lámina</option>
+                <option value="145">145</option>
+                <option value="221">221</option>
+                <option value="398">398</option>
+                <option value="465">465</option>
+                <option value="723">723</option>
+                <option value="890">890</option>
+                <option value="000">000</option>
+                <option value="Personalizado">Personalizado</option>
+            </select>
 
-        <button type="submit" id="add-to-cart">Agregar al carrito</button>
-      </form>
+            <button type="submit" id="add-to-cart">Agregar al carrito</button>
+        </form>
     </div>
-  </main>
-  <script src="script.js"></script>
+</div>
+
+        <div id="cart-container">
+            <div id="cart-content">Carrito vacío</div>
+            <button id="checkout">Realizar Pedido</button>
+        </div>
+    </main>
+    <script src="../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
 </body>
 
 </html>
