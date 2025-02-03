@@ -1,66 +1,61 @@
-const carrito = document.getElementById('carrito');
-const elemntos1 = document.getElementById('lista-1');
-const elemntos2 = document.getElementById('lista-2');
-const lista = document.querySelector('#lista-carrito tbody')
-const vaciarCarritoBtn = document.getElementById('vaciar-carrito')
+document.addEventListener('DOMContentLoaded', function() {
+    const cartIcon = document.getElementById('cart-icon');
+    const cartContainer = document.getElementById('cart-container');
+    const cartContent = document.getElementById('cart-content');
+    const addProductForm = document.getElementById('add-product-form');
+    const checkoutButton = document.getElementById('checkout');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-cargarEventListeners();
+    axios.get('https://api.example.com/products') // URL de ejemplo
+        .then(response => {
+            console.log('Productos obtenidos:', response.data);
+        })
+        .catch(error => {
+            console.error('Error al obtener productos:', error);
+        });
 
-function cargarEventListeners() {
-    elemntos1.addEventListener('click', comprarElemento);
-    elemntos2.addEventListener('click', comprarElemento);
-    carrito.addEventListener('click', eliminarElemento);
-    vaciarCarritoBtn.addEventListener('click', vaciarCarrito)
-}
-function comprarElemento(e) {
-    e.preventDefault();
-    if (e.target.classList.contains('agregar-carrito')) {
-        const elemnto = e.target.parentElement.parentElement;
-        leerDatosElemento(elemento);
+    function updateCartContent() {
+        if (cart.length === 0) {
+            cartContent.textContent = 'Carrito vacío';
+            checkoutButton.style.display = 'none';
+        } else {
+            cartContent.innerHTML = cart.map((product, index) => `
+                <div class="cart-item">
+                    <span>${product.size} - ${product.frame} - ${product.laminate}</span>
+                    <button onclick="removeFromCart(${index})">Eliminar</button>
+                </div>
+            `).join('');
+            checkoutButton.style.display = 'block';
+        }
     }
-}
 
-function leerDatosElemento(elemento) {
-    const infoElemento = {
-        marco: elemento.querySelector('img').src,
-        medida: elemnto.querySelector('h3').textContent,
-        lamina: elemnto.querySelector('.precio').textContent,
-        id: elemnto.querySelector('a').getAttribute('data-id')
-    }
-    insertarCarrito(infoElemento);
-}
+    updateCartContent();
+    
+    cartIcon.addEventListener('click', function() {
+        cartContainer.style.display = cartContainer.style.display === 'none' ? 'block' : 'none';
+    });
 
-function insertarCarrito(elemento) {
+    addProductForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const size = document.getElementById('size').value;
+        const frame = document.getElementById('frame').value;
+        const laminate = document.getElementById('laminate').value;
 
-    const row = document.createElement('tr');
-    row.innerHTML = `
-                        <td>
-                            $(elemento.marco)
-                        </td>
-                        <td>
-                             $(elemento.medida)
-                        </td>
-                        <td>
-                             $(elemnto.lamina)
-                        </td>
-    `;
-    lista.appendChild(row);
-}
+        if (size && frame && laminate) {
+            cart.push({ size, frame, laminate });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartContent();
+        }
+    });
 
-function eliminarElemento(e){
-    e.preventDefault();
-    let elemnto,
-        elementoId;
-    if(e.target.classList.contains('vaciar-carrito')){
-        e.target.parentElement.parentElement.remove();
-        elemnto = e.target.parentElement.parentElement;
-        elementoId= elemento.querySelector('a').getAttribute('data-id');
-    }
-}
+    checkoutButton.addEventListener('click', function() {
+        const whatsappMessage = cart.map(product => `${product.size} - ${product.frame} - ${product.laminate}`).join('\n');
+        window.open(`https://api.whatsapp.com/send?phone=XXXXXXXXXXX&text=${encodeURIComponent(whatsappMessage)}`);
+    });
 
-function vaciarCarrito(){
-    while(lista.firstChild){
-        lista.removeChild(lista.firstChild);
-    }
-    return false;
-}
+    window.removeFromCart = function(index) {
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartContent();
+    };
+    });
